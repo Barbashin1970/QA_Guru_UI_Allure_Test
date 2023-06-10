@@ -21,9 +21,9 @@ public class OpenMagazinPageTest {
         MagazinPage magazinPage = new MagazinPage(driver);
         magazinPage.openMagazinPage()
                 .clickBaseCourseButton();
+        magazinPage.clickBasketButton();
 
-
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(1);
         driver.quit();
     }
 }
