@@ -8,10 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 import static data.UniformResourceLocator.*;
 
-
-public class OpenMagazinPageTest {
+public class ChangeQuantityTest {
     @Test
-    public void newTest() throws InterruptedException {
+    public void changeQuantityTest() throws InterruptedException {
         //WebDriver driver = ChangeBrowser.getBrowser(CHROME_WDM);
         WebDriver driver = ChangeBrowser.getBrowser(CHROME);
         //WebDriver driver = ChangeBrowser.getBrowser(YANDEX);
@@ -19,13 +18,9 @@ public class OpenMagazinPageTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         MagazinPage magazinPage = new MagazinPage(driver);
-        magazinPage.openMagazinPage()
-                .clickBaseCourseButton();
-
+        magazinPage.openMagazinPage().clickBaseCourseButton();
         magazinPage.clickQuantityButton();
         magazinPage.clickBasketButton();
-
-
         TimeUnit.SECONDS.sleep(5);
         driver.quit();
     }
