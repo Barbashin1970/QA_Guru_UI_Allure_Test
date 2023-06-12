@@ -14,6 +14,8 @@ public class MagazinPage {
 
     private static final By quantity = By.name("quantity");
     // - <input type="text" name="quantity" id="quantity" onkeyup="reloadPrices();" class="inputbox" value="1">
+    private  static final By korzina = By.xpath("//a[@href='/index.php/magazin/korzina']");
+
     private final WebDriver driver;
 
     public MagazinPage(WebDriver driver) {
@@ -33,6 +35,11 @@ public class MagazinPage {
     @Step("Click the button to the basket")
     public void clickBasketButton() {
         driver.findElement(toTheBasketButton).click();
+    }
+
+    @Step("Go to the Basket Page")
+    public void goToTheBasketPage() {
+        driver.findElement(korzina).click();
     }
     @Step("Click the button of quantity")
     public void clickQuantityButton() {
