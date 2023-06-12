@@ -35,19 +35,6 @@ public class MagazinPageTest {
         String actualText = magazinPage.getTextOfTotalSum();
         Assert.assertEquals("Sum is not equal to expected", expectedText, actualText);
     }
-
-    @Test
-    @DisplayName("Change Quantity In Basket Page And Check Sum Total Test")
-    public void changeQuantityInBasketPageAndCheckSumTotalTest() {
-        MagazinPage magazinPage = new MagazinPage(driver);
-        String expectedText = "690.00 DogCoin";
-        String newQuantity = "10";
-        magazinPage.openMagazinPage().clickBaseCourseButton();
-        magazinPage.setNewQuantity(newQuantity);
-        magazinPage.clickBasketButton();
-        String actualText = magazinPage.getTextOfTotalSum();
-        Assert.assertEquals("Sum is not equal to expected", expectedText, actualText);
-    }
     @Test
     @DisplayName("Check Basket And Go Back To Magazin Page Test")
     public void checkBasketAndGoBackToMagazinTest() {
@@ -60,15 +47,16 @@ public class MagazinPageTest {
 
     @Test
     @DisplayName("Check Order Button Go To User Page Test")
-    public void checkOrderButtonGoToUserPageTest() {
+    public void checkOrderButtonSendToUserPageTest() {
         MagazinPage magazinPage = new MagazinPage(driver);
         magazinPage.openMagazinPage().clickBaseCourseButton();
         magazinPage.clickBasketButton();
         magazinPage.clickOrderButton();
-        Assert.assertTrue(magazinPage.isUserDataButtonDisplayed());
+        Assert.assertTrue("Button GoToNext on User Page Is Not Displayed", magazinPage.isUserDataButtonDisplayed());
     }
 
     @Test
+    @DisplayName("Change Quantity Inside Basket Test")
     public void changeQuantityInsideBasketTest() throws InterruptedException {
         MagazinPage magazinPage = new MagazinPage(driver);
         magazinPage.openMagazinPage();
