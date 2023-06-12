@@ -34,9 +34,8 @@ public class MagazinPageTest {
         MagazinPage magazinPage = new MagazinPage(driver);
         magazinPage.openMagazinPage();
         magazinPage.goToTheBasketPage();
-        //magazinPage.openMagazinPage().clickBaseCourseButton();
-        //magazinPage.clickQuantityButton();
-        //magazinPage.clickBasketButton();
+        magazinPage.goBackToTheMagazinPage();
+        magazinPage.goToTheBasketPage();
         TimeUnit.SECONDS.sleep(5);
     }
 

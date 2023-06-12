@@ -13,9 +13,11 @@ public class MagazinPage {
     private static final By toTheBasketButton = By.xpath("//input[@type='submit' and @class='btn btn-primary button btn-buy' and @value='В корзину']");
 
     private static final By quantity = By.name("quantity");
-    // - <input type="text" name="quantity" id="quantity" onkeyup="reloadPrices();" class="inputbox" value="1">
     private  static final By korzina = By.xpath("//a[@href='/index.php/magazin/korzina']");
+    private  static final By magazin = By.xpath("//a[@href='/index.php/magazin' and @aria-expanded='false']");
 
+
+    private static final By goBackToMagazin = By.xpath("//a[@href='/index.php/magazin' and @class='btn btn-arrow-left']");
     private final WebDriver driver;
 
     public MagazinPage(WebDriver driver) {
@@ -39,7 +41,15 @@ public class MagazinPage {
 
     @Step("Go to the Basket Page")
     public void goToTheBasketPage() {
-        driver.findElement(korzina).click();
+        driver.findElement(magazin).click();
+        driver.findElement(korzina).isDisplayed();
+        driver.findElement(By.linkText("Корзина")).click();
+    }
+
+    @Step("Go back to the Magazin Page")
+    public void goBackToTheMagazinPage() {
+        driver.findElement(goBackToMagazin).isDisplayed();
+        driver.findElement(goBackToMagazin).click();
     }
     @Step("Click the button of quantity")
     public void clickQuantityButton() {
