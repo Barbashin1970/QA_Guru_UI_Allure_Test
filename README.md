@@ -1,4 +1,5 @@
-# QA_new_repo
+# QA task for User Interface - Java / Maven / Junit4 / Selenium / Allure 
+
 This is a dedicated site for testing - https://qahacking.guru/index.php/magazin
 You should develop autotests for the product catalog page. 
 Here the user can order the product. 
