@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import static data.UniformResourceLocator.*;
 
-public class ChangeQuantityTest {
+public class MagazinPageTest {
     WebDriver driver;
 
     @Before
