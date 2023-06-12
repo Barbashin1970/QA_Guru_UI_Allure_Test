@@ -22,12 +22,11 @@ public class MagazinPageTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
     @Test
-    public void changeQuantityTest() { // throws InterruptedException {
+    public void changeQuantityTest() {
         MagazinPage magazinPage = new MagazinPage(driver);
         magazinPage.openMagazinPage().clickBaseCourseButton();
         magazinPage.clickQuantityButton();
         magazinPage.clickBasketButton();
-        // TimeUnit.SECONDS.sleep(5);
     }
     @Test
     public void checkBasketPageTest() throws InterruptedException {
@@ -38,8 +37,6 @@ public class MagazinPageTest {
         magazinPage.goToTheBasketPage();
         TimeUnit.SECONDS.sleep(5);
     }
-
-
 
     @After
     public void tearDown(){driver.quit();}
