@@ -17,8 +17,12 @@ Test analyses:
 1) change default quantity = 1 to another digit on the Product Catalog Page and click Buy button
 2) change quantity to another amount on the Basket Page and click Renew Basket Button
 
-- User can check exact amount of the order in DogCoin 
+- User can check exact amount of the order in DogCoin: 
 a) on Basket Page in Sum line (without delivery price)
 b) on the Order Page after fill all fields about user (include delivery price)
 
-Test need to cover all variants 1 + 1,  1 + 2, 2 + 1, 2 + 2
+Test need to cover all variants 1 + 1 + a, 1 + 2 + a, 2 + 1 + a, 2 + 2 + a.
+Variant b) is not considered here.
+Basket page need to have Return Button.
+Click to Return Button show again Product Catalog Page. 
+Condition of safety for Basket data when go back to Basket Page.
