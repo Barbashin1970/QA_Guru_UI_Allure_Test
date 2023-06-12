@@ -5,14 +5,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import pageobject.MagazinPage;
+import pageobject.ProductCatalogPage;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static data.UniformResourceLocator.*;
 
-public class MagazinPageTest {
+public class ProductCatalogPageTest {
     WebDriver driver;
 
     @Before
@@ -26,42 +26,42 @@ public class MagazinPageTest {
     @Test
     @DisplayName("Change Quantity In Product Page And Check Sum Total Test")
     public void changeQuantityInProductPageAndCheckSumTotalTest() {
-        MagazinPage magazinPage = new MagazinPage(driver);
+        ProductCatalogPage productCatalogPage = new ProductCatalogPage(driver);
         String expectedText = "690.00 DogCoin";
         String newQuantity = "10";
-        magazinPage.openMagazinPage().clickBaseCourseButton();
-        magazinPage.setNewQuantity(newQuantity);
-        magazinPage.clickBasketButton();
-        String actualText = magazinPage.getTextOfTotalSum();
+        productCatalogPage.openMagazinPage().clickBaseCourseButton();
+        productCatalogPage.setNewQuantity(newQuantity);
+        productCatalogPage.clickBasketButton();
+        String actualText = productCatalogPage.getTextOfTotalSum();
         Assert.assertEquals("Sum is not equal to expected", expectedText, actualText);
     }
     @Test
     @DisplayName("Check Basket And Go Back To Magazin Page Test")
     public void checkBasketAndGoBackToMagazinTest() {
-        MagazinPage magazinPage = new MagazinPage(driver);
-        magazinPage.openMagazinPage();
-        magazinPage.goToTheBasketPage();
-        magazinPage.goBackToTheMagazinPage();
-        Assert.assertTrue("Magazin Page is not displayed", magazinPage.isMagazinPageOpen());
+        ProductCatalogPage productCatalogPage = new ProductCatalogPage(driver);
+        productCatalogPage.openMagazinPage();
+        productCatalogPage.goToTheBasketPage();
+        productCatalogPage.goBackToTheMagazinPage();
+        Assert.assertTrue("Magazin Page is not displayed", productCatalogPage.isMagazinPageOpen());
     }
 
     @Test
     @DisplayName("Check Order Button Go To User Page Test")
     public void checkOrderButtonSendToUserPageTest() {
-        MagazinPage magazinPage = new MagazinPage(driver);
-        magazinPage.openMagazinPage().clickBaseCourseButton();
-        magazinPage.clickBasketButton();
-        magazinPage.clickOrderButton();
-        Assert.assertTrue("Button GoToNext on User Page Is Not Displayed", magazinPage.isUserDataButtonDisplayed());
+        ProductCatalogPage productCatalogPage = new ProductCatalogPage(driver);
+        productCatalogPage.openMagazinPage().clickBaseCourseButton();
+        productCatalogPage.clickBasketButton();
+        productCatalogPage.clickOrderButton();
+        Assert.assertTrue("Button GoToNext on User Page Is Not Displayed", productCatalogPage.isUserDataButtonDisplayed());
     }
 
     @Test
     @DisplayName("Change Quantity Inside Basket Test")
     public void changeQuantityInsideBasketTest() throws InterruptedException {
-        MagazinPage magazinPage = new MagazinPage(driver);
-        magazinPage.openMagazinPage();
-        magazinPage.clickBuyCourseButton();
-        magazinPage.setNewQuantityInBasket("22");
+        ProductCatalogPage productCatalogPage = new ProductCatalogPage(driver);
+        productCatalogPage.openMagazinPage();
+        productCatalogPage.clickBuyCourseButton();
+        productCatalogPage.setNewQuantityInBasket("22");
         TimeUnit.SECONDS.sleep(5);
     }
 

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import static data.UniformResourceLocator.BASE_URL;
 
 
-public class MagazinPage {
+public class ProductCatalogPage {
 
     // locators for Magazine Page
     private static final By baseCourseButton = By.xpath("//a[contains(@href, '/index.php/magazin/kurs') and contains(text(), 'Базовый курс тестирования ПО')]");
@@ -35,12 +35,12 @@ public class MagazinPage {
 
     private final WebDriver driver;
 
-    public MagazinPage(WebDriver driver) {
+    public ProductCatalogPage(WebDriver driver) {
         this.driver = driver;
     }
 
     @Step("Open Magazin Page")
-    public MagazinPage openMagazinPage() {
+    public ProductCatalogPage openMagazinPage() {
         driver.get(BASE_URL);
         return this;
     }
