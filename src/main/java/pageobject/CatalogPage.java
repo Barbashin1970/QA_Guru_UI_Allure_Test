@@ -1,20 +1,16 @@
 package pageobject;
 
-
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static data.UniformResourceLocator.BASE_URL;
 
+public class CatalogPage {
 
-public class ProductCatalogPage {
-
-    // locators for Magazine Page
+    // locators for Catalog Page
     private static final By baseCourseButton = By.xpath("//a[contains(@href, '/index.php/magazin/kurs') and contains(text(), 'Базовый курс тестирования ПО')]");
-
     private static final By buyCourseButton = By.xpath("//a[@class='btn btn-success button_buy'][contains(@href,'product_id=4')]");
-
     private static final By korzina = By.xpath("//a[@href='/index.php/magazin/korzina']");
     private static final By magazin = By.xpath("//a[@href='/index.php/magazin' and @aria-expanded='false']");
 
@@ -23,7 +19,7 @@ public class ProductCatalogPage {
     private static final By toTheBasketButton = By.xpath("//input[@type='submit' and @class='btn btn-primary button btn-buy' and @value='В корзину']");
 
     // locators for Basket Page
-    private static final By goBackToMagazin = By.xpath("//a[@href='/index.php/magazin' and @class='btn btn-arrow-left']");
+    private static final By goBackToCatalogPage = By.xpath("//a[@href='/index.php/magazin' and @class='btn btn-arrow-left']");
     private static final By valueTotal = By.xpath(" //td[@class='value']");
     private static final By orderButton = By.xpath("//a[@class='btn btn-arrow-right']");
     private static final By updateBasketButton = By.xpath("//img[@src='https://qahacking.guru/components/com_jshopping/images/reload.png']");
@@ -35,12 +31,12 @@ public class ProductCatalogPage {
 
     private final WebDriver driver;
 
-    public ProductCatalogPage(WebDriver driver) {
+    public CatalogPage(WebDriver driver) {
         this.driver = driver;
     }
 
     @Step("Open Magazin Page")
-    public ProductCatalogPage openMagazinPage() {
+    public CatalogPage openMagazinPage() {
         driver.get(BASE_URL);
         return this;
     }
@@ -67,21 +63,18 @@ public class ProductCatalogPage {
 
     @Step("Go back to the Magazin Page")
     public void goBackToTheMagazinPage() {
-        driver.findElement(goBackToMagazin).isDisplayed();
-        driver.findElement(goBackToMagazin).click();
+        driver.findElement(goBackToCatalogPage).isDisplayed();
+        driver.findElement(goBackToCatalogPage).click();
     }
-    @Step("Set new quantity")
+    @Step("Set new quantity in Product Description Card")
     public void setNewQuantity(String quant) {
         driver.findElement(quantity).click();
         driver.findElement(quantity).clear();
         driver.findElement(quantity).sendKeys(quant);
-
-
-
     }
 
     @Step("Check condition of displayed Magazin Page")
-    public boolean isMagazinPageOpen() {
+    public boolean isCatalogPageOpen() {
         return driver.findElement(magazin).isDisplayed();
     }
 
@@ -90,13 +83,23 @@ public class ProductCatalogPage {
         return driver.findElement(valueTotal).getText();
     }
 
-    @Step("Set new quantity inside Basket Page")
-    public void setNewQuantityInBasket(String quant) {
+    @Step("Set new quantity inside Basket Page for the First Product")
+    public void setNewQuantityInBasketFirst(String quant) {
         driver.findElement(quantityInBasketFirstLine).click();
         driver.findElement(quantityInBasketFirstLine).clear();
         driver.findElement(quantityInBasketFirstLine).sendKeys(quant);
     }
 
+    @Step("Set new quantity inside Basket Page for the Second Product")
+    public void setNewQuantityInBasketSecond(String quant) {
+        driver.findElement(quantityInBasketSecondLine).click();
+        driver.findElement(quantityInBasketSecondLine).clear();
+        driver.findElement(quantityInBasketSecondLine).sendKeys(quant);
+    }
+    @Step("Click the Update Quantity button in the Basket")
+    public void updateBasketButtonClick() {
+        driver.findElement(updateBasketButton).click();
+    }
     @Step("Click to the Order button")
     public void clickOrderButton() {
         driver.findElement(orderButton).click();
