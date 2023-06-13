@@ -32,27 +32,27 @@ public class BasketPage {
         return driver.findElement(valueTotal).getText();
     }
 
-    @Step("Set new quantity inside Basket Page for the First Product")
+    @Step("Set new quantity inside Basket Page for the 1 Product")
     public void setNewQuantityInBasketFirst(String quant) {
         driver.findElement(quantityInBasketFirstLine).click();
         driver.findElement(quantityInBasketFirstLine).clear();
         driver.findElement(quantityInBasketFirstLine).sendKeys(quant);
     }
 
-    @Step("Set new quantity inside Basket Page for the Second Product")
+    @Step("Set new quantity inside Basket Page for the 2 Product")
     public void setNewQuantityInBasketSecond(String quant) {
         driver.findElement(quantityInBasketSecondLine).click();
         driver.findElement(quantityInBasketSecondLine).clear();
         driver.findElement(quantityInBasketSecondLine).sendKeys(quant);
     }
 
-    @Step("Set new quantity inside Basket Page for the Second Product")
+    @Step("Set new quantity inside Basket Page for the 3 Product")
     public void setNewQuantityInBasketThird(String quant) {
         driver.findElement(quantityInBasketThirdLine).click();
         driver.findElement(quantityInBasketThirdLine).clear();
         driver.findElement(quantityInBasketThirdLine).sendKeys(quant);
     }
-    @Step("Set new quantity inside Basket Page for the Second Product")
+    @Step("Set new quantity inside Basket Page for the 4 Product")
     public void setNewQuantityInBasketForth(String quant) {
         driver.findElement(quantityInBasketForthLine).click();
         driver.findElement(quantityInBasketForthLine).clear();

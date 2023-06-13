@@ -22,7 +22,7 @@ public class ChangeQuantityTest extends Start {
     }
 
     @Test
-    @DisplayName("Change Quantity Inside Basket Test")
+    @DisplayName("Change Quantity To Very Big 100500 Inside Basket Test")
     public void changeQuantityInsideBasketTest() {
         CatalogPage catalogPage = new CatalogPage(driver);
         BasketPage basketPage = new BasketPage(driver);
@@ -37,7 +37,7 @@ public class ChangeQuantityTest extends Start {
     }
 
     @Test
-    @DisplayName("Change All Product Quantity in Basket and Update Test")
+    @DisplayName("Put All Products to the Basket and Update Quantity Test")
     public void changeAllProductInTheBasketTest() throws InterruptedException {
         CatalogPage catalogPage = new CatalogPage(driver);
         BasketPage basketPage = new BasketPage(driver);

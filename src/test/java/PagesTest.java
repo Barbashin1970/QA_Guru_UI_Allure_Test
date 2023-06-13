@@ -6,7 +6,7 @@ import pageobject.CatalogPage;
 public class PagesTest extends Start {
 
     @Test
-    @DisplayName("Check Basket And Go Back To Product Catalog Page Test")
+    @DisplayName("Check Basket Page Button And Go Back To Product Catalog Page Test")
     public void checkBasketAndGoBackToCatalogTest() {
         CatalogPage catalogPage = new CatalogPage(driver);
         BasketPage basketPage = new BasketPage(driver);
