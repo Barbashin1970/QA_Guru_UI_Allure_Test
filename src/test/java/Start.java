@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
-import static data.UniformResourceLocator.CHROME;
+import static data.UniformResourceLocator.*;
 
 public class Start {
 
@@ -13,9 +13,7 @@ public class Start {
 
     @Before
     public void startUp() {
-        //WebDriver driver = ChangeBrowser.getBrowser(CHROME_WDM);
         driver = ChangeBrowser.getBrowser(CHROME);
-        //WebDriver driver = ChangeBrowser.getBrowser(YANDEX);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
