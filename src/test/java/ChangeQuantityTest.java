@@ -7,11 +7,13 @@ import pageobject.CatalogPage;
 import java.util.concurrent.TimeUnit;
 
 public class ChangeQuantityTest extends Start {
-    CatalogPage catalogPage = new CatalogPage(driver);
-    BasketPage basketPage = new BasketPage(driver);
+    CatalogPage catalogPage;
+    BasketPage basketPage;
     @Test
     @DisplayName("Change Quantity In Product Page And Check Sum Total Test")
     public void changeQuantityInProductPageAndCheckSumTotalTest() {
+        catalogPage = new CatalogPage(driver);
+        basketPage = new BasketPage(driver);
         String expectedText = "690.00 DogCoin";
         String newQuantity = "10";
         catalogPage.openCatalogPage()
@@ -25,6 +27,8 @@ public class ChangeQuantityTest extends Start {
     @Test
     @DisplayName("Change Quantity To Very Big 100500 Inside Basket Test")
     public void changeQuantityInsideBasketTest() {
+        catalogPage = new CatalogPage(driver);
+        basketPage = new BasketPage(driver);
         String expectedText = "6934500.00 DogCoin";
         String newQuantity = "100500";
         catalogPage.openCatalogPage()
@@ -38,6 +42,8 @@ public class ChangeQuantityTest extends Start {
     @Test
     @DisplayName("Put All Products to the Basket and Update Quantity Test")
     public void changeAllProductInTheBasketTest() throws InterruptedException {
+        catalogPage = new CatalogPage(driver);
+        basketPage = new BasketPage(driver);
         String expectedText = "1867.50 DogCoin";
         catalogPage.openCatalogPage().clickBuyAll();
         basketPage.setNewQuantityInBasketFirst("5")
