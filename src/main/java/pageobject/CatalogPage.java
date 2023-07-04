@@ -3,6 +3,7 @@ package pageobject;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import static data.UniformResourceLocator.BASE_URL;
 
@@ -14,8 +15,8 @@ public class CatalogPage {
     private static final By buyPodcastButton = By.xpath("//a[@class='btn btn-success button_buy'][contains(@href,'product_id=3')]");
     private static final By buyDogSnackButton = By.xpath("//a[@class='btn btn-success button_buy'][contains(@href,'product_id=2')]");
     private static final By buyDictionaryButton = By.xpath("//a[@class='btn btn-success button_buy'][contains(@href,'product_id=1')]");
-    private static final By korzina = By.xpath("//a[@href='/index.php/magazin/korzina']");
-    private static final By magazin = By.xpath("//a[@href='/index.php/magazin' and @aria-expanded='false']");
+    private static final By basket = By.xpath("//a[@href='/index.php/magazin/korzina']");
+    private static final By catalog = By.xpath("//a[@href='/index.php/magazin' and @aria-expanded='false']");
 
     // locators for Product Details Page
     private static final By quantity = By.name("quantity");
@@ -37,8 +38,8 @@ public class CatalogPage {
     }
 
     @Step("Click the button of the Base Course of QA")
-    public void clickBaseCourseButton() {
-        driver.findElement(baseCourseButton).click();
+    public CatalogPage clickBaseCourseButton() {
+        driver.findElement(baseCourseButton).click(); return this;
     }
 
     @Step("Click the Buy Button of the Base Course of QA")
@@ -64,21 +65,23 @@ public class CatalogPage {
 
     @Step("Go to the Basket Page")
     public void goToTheBasketPage() {
-        driver.findElement(magazin).click();
-        driver.findElement(korzina).isDisplayed();
+        driver.findElement(catalog).click();
+        driver.findElement(basket).isDisplayed();
         driver.findElement(By.linkText("Корзина")).click();
     }
 
     @Step("Set new quantity in Product Description Card")
-    public void setNewQuantity(String quant) {
-        driver.findElement(quantity).click();
-        driver.findElement(quantity).clear();
-        driver.findElement(quantity).sendKeys(quant);
+    public CatalogPage setNewQuantity(String quant) {
+        WebElement element = driver.findElement(quantity);
+        element.click();
+        element.clear();
+        element.sendKeys(quant);
+        return this;
     }
 
     @Step("Check condition of displayed Product Catalog Page")
     public boolean isCatalogPageOpen() {
-        return driver.findElement(magazin).isDisplayed();
+        return driver.findElement(catalog).isDisplayed();
     }
 
     @Step("Check the condition of displaying User Data Ok Button")

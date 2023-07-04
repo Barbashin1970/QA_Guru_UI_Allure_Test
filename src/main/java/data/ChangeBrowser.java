@@ -1,6 +1,5 @@
 package data;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,12 +15,7 @@ public class ChangeBrowser {
                 options.setBinary("/Applications/Yandex.app/Contents/MacOS/Yandex");
                 return new ChromeDriver(options);
 
-            case "chromeWebDriverManager":
-                System.setProperty("webdriver.http.factory", "jdk-http-client");
-                WebDriverManager.chromedriver().setup();
-                return new ChromeDriver();
-
-            case "chromeNoManager":
+            case "chrome":
                 System.setProperty("webdriver.http.factory", "jdk-http-client");
                 return new ChromeDriver();
 

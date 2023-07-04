@@ -3,6 +3,7 @@ package pageobject;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class BasketPage {
 
@@ -16,6 +17,7 @@ public class BasketPage {
     private static final By quantityInBasketThirdLine = By.xpath("//input[@name='quantity[2]']");
     private static final By quantityInBasketForthLine = By.xpath("//input[@name='quantity[3]']");
     private final WebDriver driver;
+    private WebElement element;
 
     public BasketPage(WebDriver driver) {
         this.driver = driver;
@@ -23,8 +25,9 @@ public class BasketPage {
 
     @Step("Go back to the Catalog Page")
     public void goBackToTheCatalogPage() {
-        driver.findElement(goBackToCatalogPage).isDisplayed();
-        driver.findElement(goBackToCatalogPage).click();
+        element = driver.findElement(goBackToCatalogPage);
+        element.isDisplayed();
+        element.click();
     }
 
     @Step("Get text of total sum in basket")
@@ -33,30 +36,38 @@ public class BasketPage {
     }
 
     @Step("Set new quantity inside Basket Page for the 1 Product")
-    public void setNewQuantityInBasketFirst(String quant) {
-        driver.findElement(quantityInBasketFirstLine).click();
-        driver.findElement(quantityInBasketFirstLine).clear();
-        driver.findElement(quantityInBasketFirstLine).sendKeys(quant);
+    public BasketPage setNewQuantityInBasketFirst(String quant) {
+        element = driver.findElement(quantityInBasketFirstLine);
+        element.click();
+        element.clear();
+        element.sendKeys(quant);
+        return this;
     }
 
     @Step("Set new quantity inside Basket Page for the 2 Product")
-    public void setNewQuantityInBasketSecond(String quant) {
-        driver.findElement(quantityInBasketSecondLine).click();
-        driver.findElement(quantityInBasketSecondLine).clear();
-        driver.findElement(quantityInBasketSecondLine).sendKeys(quant);
+    public BasketPage setNewQuantityInBasketSecond(String quant) {
+        element = driver.findElement(quantityInBasketSecondLine);
+        element.click();
+        element.clear();
+        element.sendKeys(quant);
+        return this;
     }
 
     @Step("Set new quantity inside Basket Page for the 3 Product")
-    public void setNewQuantityInBasketThird(String quant) {
-        driver.findElement(quantityInBasketThirdLine).click();
-        driver.findElement(quantityInBasketThirdLine).clear();
-        driver.findElement(quantityInBasketThirdLine).sendKeys(quant);
+    public BasketPage setNewQuantityInBasketThird(String quant) {
+        element = driver.findElement(quantityInBasketThirdLine);
+        element.click();
+        element.clear();
+        element.sendKeys(quant);
+        return this;
     }
     @Step("Set new quantity inside Basket Page for the 4 Product")
-    public void setNewQuantityInBasketForth(String quant) {
-        driver.findElement(quantityInBasketForthLine).click();
-        driver.findElement(quantityInBasketForthLine).clear();
-        driver.findElement(quantityInBasketForthLine).sendKeys(quant);
+    public BasketPage setNewQuantityInBasketForth(String quant) {
+        element = driver.findElement(quantityInBasketForthLine);
+        element.click();
+        element.clear();
+        element.sendKeys(quant);
+        return this;
     }
     @Step("Click the Update Quantity button in the Basket")
     public void updateBasketButtonClick() {
